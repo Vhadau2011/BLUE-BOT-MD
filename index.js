@@ -1,50 +1,27 @@
 const {
-    default: makeWASocket,
-    useMultiFileAuthState,
     DisconnectReason,
-    fetchLatestBaileysVersion,
     makeInMemoryStore,
     jidDecode,
     proto,
-    getContentType,
-    delay
+    getContentType
 } = require("@whiskeysockets/baileys");
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
-const fs = require("fs");
 const chalk = require("chalk");
-const path = require("path");
-const NodeCache = require("node-cache");
 const config = require("./config");
 const db = require("./lib/database");
+const { connectToWhatsApp } = require("./lib/connection");
 
-const msgRetryCounterCache = new NodeCache();
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
 async function startBot() {
-    const { state, saveCreds } = await useMultiFileAuthState("./session");
-    const { version } = await fetchLatestBaileysVersion();
+    console.log(chalk.blue.bold("\n--- BLUE-BOT MD STARTING ---"));
+    
+    const { client, saveCreds } = await connectToWhatsApp();
 
-    const client = makeWASocket({
-        version,
-        logger: pino({ level: "silent" }),
-        printQRInTerminal: !config.usePairingCode,
-        auth: state,
-        msgRetryCounterCache,
-        browser: ["BLUE-BOT MD", "Safari", "1.0.0"]
-    });
-
-    if (config.usePairingCode && !client.authState.creds.registered) {
-        if (!config.phoneNumber) {
-            console.log(chalk.red("Phone number is required for pairing code. Please set it in config.js"));
-            process.exit(1);
-        }
-        setTimeout(async () => {
-            let code = await client.requestPairingCode(config.phoneNumber);
-            code = code?.match(/.{1,4}/g)?.join("-") || code;
-            console.log(chalk.yellow(`Your Pairing Code: `), chalk.bold.white(code));
-        }, 3000);
-    }
+    // Initialize database keys
+    if (!db.get('welcome')) db.set('welcome', {});
+    if (!db.get('iq')) db.set('iq', {});
 
     store.bind(client.ev);
 
@@ -61,25 +38,23 @@ async function startBot() {
         }
     });
 
-    // Initialize database keys if they don't exist
-    if (!db.get('welcome')) db.set('welcome', {});
-    if (!db.get('iq')) db.set('iq', {});
-
     client.ev.on("connection.update", async (update) => {
-        const { connection, lastDisconnect, qr } = update;
-        if (qr && !config.usePairingCode) {
-            console.log(chalk.yellow("Scan the QR code above to connect."));
-        }
+        const { connection, lastDisconnect } = update;
+        
         if (connection === "close") {
             let reason = new Boom(lastDisconnect?.error)?.output.statusCode;
+            console.log(chalk.yellow(`\n[!] Connection closed. Reason: ${reason}`));
+            
             if (reason === DisconnectReason.loggedOut) {
-                console.log("Device Logged Out, Please Scan Again And Run.");
+                console.log(chalk.red("Device Logged Out, Please Scan Again."));
                 process.exit();
             } else {
+                console.log(chalk.cyan("Reconnecting..."));
                 startBot();
             }
         } else if (connection === "open") {
-            console.log(chalk.green("BLUE-BOT MD Connected Successfully!"));
+            console.log(chalk.green.bold("\n[+] BLUE-BOT MD Connected Successfully!"));
+            console.log(chalk.white(`Connected as: ${client.user.name || 'Bot'} (${client.user.id.split(':')[0]})`));
         }
     });
 

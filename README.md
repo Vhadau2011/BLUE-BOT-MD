@@ -10,9 +10,23 @@ A fully functional WhatsApp Multi-Device bot with 30+ fun and useful commands.
 
 ## 🛠 Setup
 1. Clone this repository.
-2. Edit `config.js` with your details (Owner number, Bot name, etc.).
+2. Edit `config.js` with your details:
+   - `ownerNumber`: Your WhatsApp number.
+   - `usePairingCode`: Set to `true` for pairing code or `false` for QR code.
+   - `phoneNumber`: Required if using pairing code.
 3. Run `npm install` to install dependencies.
 4. Run `npm start` to start the bot.
+
+## 📱 Connection Methods
+### 1. Pairing Code (Recommended for Panels)
+- Set `usePairingCode: true` in `config.js`.
+- Enter your phone number in `phoneNumber`.
+- When you run the bot, a code will appear in the terminal.
+- Open WhatsApp > Linked Devices > Link with Phone Number and enter the code.
+
+### 2. QR Code
+- Set `usePairingCode: false` in `config.js`.
+- Scan the QR code that appears in the terminal using WhatsApp.
 
 ## 📝 Commands
 Type `.menu` to see the full list of commands.
