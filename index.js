@@ -16,6 +16,7 @@ const chalk = require("chalk");
 const path = require("path");
 const NodeCache = require("node-cache");
 const config = require("./config");
+const db = require("./lib/database");
 
 const msgRetryCounterCache = new NodeCache();
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
@@ -59,6 +60,10 @@ async function startBot() {
             console.log(err);
         }
     });
+
+    // Initialize database keys if they don't exist
+    if (!db.get('welcome')) db.set('welcome', {});
+    if (!db.get('iq')) db.set('iq', {});
 
     client.ev.on("connection.update", async (update) => {
         const { connection, lastDisconnect, qr } = update;
