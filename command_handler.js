@@ -36,17 +36,21 @@ module.exports = async (client, m, chatUpdate, store) => {
 
         // Special case for menu
         if (command === 'menu' || command === 'help') {
-            let menuText = `*💙 BLUE-BOT MD MODULAR 💙*\n\n` +
-                `*User:* ${pushname}\n` +
-                `*Prefix:* ${prefix}\n\n`;
-            
-            for (const [name, cmd] of commands) {
-                menuText += `*--- ${name.toUpperCase()} ---*\n`;
-                // Note: In a real bot, you'd list sub-commands here. 
-                // For this demo, we'll just show the category.
-                menuText += `Category: ${cmd.description}\n\n`;
-            }
-            menuText += `*Type ${prefix}[command] to use.*\n*BLUE-BOT MD BY MANUS*`;
+            let menuText = `*💙 BLUE-BOT MD ULTIMATE 💙*\n\n` +
+                `*User:* ${pushname}\n*Prefix:* ${prefix}\n\n` +
+                `*--- 🤖 AI & SEARCH ---*\n` +
+                `• ${prefix}ai [query]\n• ${prefix}google [query]\n• ${prefix}lyrics [artist|song]\n\n` +
+                `*--- 💰 ECONOMY ---*\n` +
+                `• ${prefix}balance\n• ${prefix}daily\n• ${prefix}gamble [amount]\n• ${prefix}slot\n\n` +
+                `*--- 🎮 GAMES ---*\n` +
+                `• ${prefix}iq\n• ${prefix}ship @user\n• ${prefix}joke\n• ${prefix}fact\n\n` +
+                `*--- 📥 DOWNLOADERS ---*\n` +
+                `• ${prefix}ytmp3 [link]\n• ${prefix}ytmp4 [link]\n• ${prefix}tiktok [link]\n• ${prefix}sticker [reply image]\n\n` +
+                `*--- 👥 GROUP ---*\n` +
+                `• ${prefix}hidetag\n• ${prefix}setwelcome [text]\n• ${prefix}getwelcome\n\n` +
+                `*--- ⚙️ OWNER ---*\n` +
+                `• ${prefix}eval\n• ${prefix}restart\n\n` +
+                `*BLUE-BOT MD BY MANUS*`;
             return m.reply(menuText);
         }
 

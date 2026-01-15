@@ -22,6 +22,8 @@ async function startBot() {
     // Initialize database keys
     if (!db.get('welcome')) db.set('welcome', {});
     if (!db.get('iq')) db.set('iq', {});
+    if (!db.get('economy')) db.set('economy', {});
+    if (!db.get('leveling')) db.set('leveling', {});
 
     store.bind(client.ev);
 
@@ -59,6 +61,23 @@ async function startBot() {
     });
 
     client.ev.on("creds.update", saveCreds);
+
+    client.ev.on("group-participants.update", async (anu) => {
+        try {
+            let metadata = await client.groupMetadata(anu.id);
+            let participants = anu.participants;
+            for (let num of participants) {
+                if (anu.action == 'add') {
+                    let welcomeMsg = db.get('welcome')[anu.id] || `Welcome @${num.split('@')[0]} to ${metadata.subject}!`;
+                    client.sendMessage(anu.id, { text: welcomeMsg, mentions: [num] });
+                } else if (anu.action == 'remove') {
+                    client.sendMessage(anu.id, { text: `Goodbye @${num.split('@')[0]}, we will miss you!`, mentions: [num] });
+                }
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    });
 
     client.decodeJid = (jid) => {
         if (!jid) return jid;
