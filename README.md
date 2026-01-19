@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/djalega8000/zokou/refs/heads/main/Ephoto360.com_164cb282992914.jpg" alt="zokou Banner" width="600">
-  <h1 align="center">zokou 3.0</h1>
+  <img src="https://raw.githubusercontent.com/Vhadau2011/Blue-bot-md/refs/heads/main/Ephoto360.com_164cb282992914.jpg" alt="BLUEBOT Banner" width="600">
+  <h1 align="center">BLUE-BOT-MD</h1>
   <p align="center">
     <img src="https://img.shields.io/badge/Multi_Devices-100%25-success?style=flat&logo=whatsapp" alt="Multi-devices">
     <img src="https://img.shields.io/badge/Version-3.0-blue?style=flat&logo=github" alt="Version">
@@ -17,7 +17,7 @@
 
 ---
 
-## 🌟 Why Choose zokou?
+## 🌟 Why Choose BLUEBOT?
 
 | Feature             | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
@@ -124,15 +124,15 @@ const zokouEnv = {
 function cloneRepository() {
   const cloneResult = spawnSync("git", [
     "clone",
-    "https://gitlab.com/zokou1/zokou-english.git",
-    "zokou",
+    "https://Vhadau2011/BLUE-BOT-MD.git",
+    "bluebot",
   ]);
 
   if (cloneResult.error) {
     console.error("Error cloning repository:", cloneResult.error);
   }
 
-  const envFile = "zokou/set.env";
+  const envFile = "BLUEBOT/set.env";
 
   if (!fs.existsSync(envFile)) {
     for (const [key, value] of Object.entries(zokouEnv)) {
@@ -216,7 +216,7 @@ For a classic installation on a panel or VPS:
 ### 3. VPS Hosting
 
 ```bash
-git clone https://gitlab.com/zokou1/zokou-english.git # (or use the ZIP)
+git clone https://gitlab.com/Vhadau2011/BLUE-BOT-MD.git # (or use the ZIP)
 cd zokou-english
 npm install
 npm start
@@ -256,8 +256,8 @@ OWNER_NUMBER="27744332007"        # Your WhatsApp number
 
 ### 🌟 Special Thanks
 
-- **The zokou community** for testing and feedback
-- **Contributors** on GitHub ([See all](https://gitlab.com/zokou1/zokou-english.git/graphs/contributors))
+- **The BLUEBOT community** for testing and feedback
+- **Contributors** on GitHub ([See all](https://gitlab.com/BLUE-BOT-MD.git/graphs/contributors))
 - **Beta Testers** for their patience with unstable versions 😅
 
 ### 📚 Libraries Used
