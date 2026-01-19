@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/djalega8000/Zokou-MD/refs/heads/main/Ephoto360.com_164cb282992914.jpg" alt="Zokou Banner" width="600">
-  <h1 align="center">Zokou-MD 3.0</h1>
+  <img src="https://raw.githubusercontent.com/djalega8000/BLUEBOT-MD/refs/heads/main/Ephoto360.com_164cb282992914.jpg" alt="BLUEBOT-MD Banner" width="600">
+  <h1 align="center">BLUEBOT-MD 3.0</h1>
   <p align="center">
     <img src="https://img.shields.io/badge/Multi_Devices-100%25-success?style=flat&logo=whatsapp" alt="Multi-devices">
     <img src="https://img.shields.io/badge/Version-3.0-blue?style=flat&logo=github" alt="Version">
@@ -17,7 +17,7 @@
 
 ---
 
-## 🌟 Why Choose Zokou-MD?
+## 🌟 Why Choose BLUEBOT-MD?
 
 | Feature             | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
@@ -33,7 +33,7 @@
 
 Deploy instantly on Heroku:
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://gitlab.com/zokou1/zokou-md-english.git)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://gitlab.com/bluebot-md1/bluebot-md-english.git)
 
 ---
 
@@ -52,7 +52,7 @@ Deploy instantly on Heroku:
 const fs = require("fs");
 const { spawnSync, spawn } = require("child_process");
 
-const zokouEnv = {
+const bluebot-mdEnv = {
   // WhatsApp session ID (used to connect to your account)
   SESSION_ID: "",
 
@@ -66,7 +66,7 @@ const zokouEnv = {
   AUTO_DOWNLOAD_STATUS: "no",
 
   // Display name of your bot
-  BOT_NAME: "Zokou-MD",
+  BOT_NAME: "BLUEBOT-MD",
 
   // Visual theme for the bot menus (predefined name or media links)
   MENU_THEME: "LUFFY",
@@ -81,10 +81,10 @@ const zokouEnv = {
   PRESENCE: "1",
 
   // Your display name (owner's name)
-  OWNER_NAME: "Djalega++",
+  OWNER_NAME: "Mudau_t",
 
   // Your phone number in international format
-  OWNER_NUMBER: "228 XX XX XX XX",
+  OWNER_NUMBER: "27744332007",
 
   // Number of warnings before a user is sanctioned
   WARN_COUNT: 3,
@@ -114,7 +114,7 @@ const zokouEnv = {
   SERVER: "vps",
 
   // Sticker pack name used by the bot
-  STICKER_PACKNAME: "made with ❤; Zokou-MD",
+  STICKER_PACKNAME: "made with ❤; BLUEBOT-MD",
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,18 +124,18 @@ const zokouEnv = {
 function cloneRepository() {
   const cloneResult = spawnSync("git", [
     "clone",
-    "https://gitlab.com/zokou1/zokou-md-english.git",
-    "zokou",
+    "https://gitlab.com/bluebot-md1/bluebot-md-english.git",
+    "bluebot-md",
   ]);
 
   if (cloneResult.error) {
     console.error("Error cloning repository:", cloneResult.error);
   }
 
-  const envFile = "zokou/set.env";
+  const envFile = "bluebot-md/set.env";
 
   if (!fs.existsSync(envFile)) {
-    for (const [key, value] of Object.entries(zokouEnv)) {
+    for (const [key, value] of Object.entries(bluebot-mdEnv)) {
       value ? fs.appendFileSync(envFile, `${key}=${value}\n`) : null;
     }
   }
@@ -145,7 +145,7 @@ function cloneRepository() {
 
 function installDependancies() {
   const result = spawnSync("npm", ["install"], {
-    cwd: "zokou",
+    cwd: "bluebot-md",
     stdio: "inherit",
     env: { ...process.env, CI: "true" },
   });
@@ -158,7 +158,7 @@ function installDependancies() {
 
 function checkDependencies() {
   const result = spawnSync("npm", ["ls"], {
-    cwd: "zokou",
+    cwd: "bluebot-md",
     stdio: "inherit",
   });
 
@@ -173,9 +173,9 @@ function checkDependencies() {
 function startPm2() {
   const pm2 = spawn(
     "npx",
-    ["pm2", "start", "index.js", "--name", "zokou", "--attach"],
+    ["pm2", "start", "index.js", "--name", "bluebot-md", "--attach"],
     {
-      cwd: "zokou",
+      cwd: "bluebot-md",
       stdio: "inherit",
     }
   );
@@ -197,7 +197,7 @@ function startPm2() {
   });
 }
 
-if (!fs.existsSync("zokou")) {
+if (!fs.existsSync("bluebot-md")) {
   cloneRepository();
 }
 
@@ -211,13 +211,13 @@ startPm2();
 
 For a classic installation on a panel or VPS:
 
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge&logo=github)](https://gitlab.com/zokou1/zokou-md-english/-/archive/main/zokou-md-english-main.zip?ref_type=heads)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge&logo=github)](https://gitlab.com/bluebot-md1/bluebot-md-english/-/archive/main/bluebot-md-english-main.zip?ref_type=heads)
 
 ### 3. VPS Hosting
 
 ```bash
-git clone https://gitlab.com/zokou1/zokou-md-english.git # (or use the ZIP)
-cd Zokou-MD-english
+git clone https://gitlab.com/bluebot-md1/bluebot-md-english.git # (or use the ZIP)
+cd BLUEBOT-MD-english
 npm install
 npm start
 ```
@@ -232,9 +232,9 @@ npm start
 
 | Service            | Link                                                               | Status                                                      |
 | ------------------ | ------------------------------------------------------------------ | ----------------------------------------------------------- |
-| **Session Scan**   | [https://zokou-scan.onrender.com](https://zokou-scan.onrender.com) | ![Online](https://img.shields.io/badge/Status-Online-green) |
-| **Session Scan 2** | [zokouscan-din3.onrender.com](https://zokouscan-din3.onrender.com) | ![Online](https://img.shields.io/badge/Status-Online-green) |
-| **Backup Server**  | [zokou-web.onrender.com](https://zokou-web.onrender.com/)          | ![Online](https://img.shields.io/badge/Status-Online-green) |
+| **Session Scan**   | [https://bluebot-md-scan.onrender.com](https://bluebot-md-scan.onrender.com) | ![Online](https://img.shields.io/badge/Status-Online-green) |
+| **Session Scan 2** | [bluebot-mdscan-din3.onrender.com](https://bluebot-mdscan-din3.onrender.com) | ![Online](https://img.shields.io/badge/Status-Online-green) |
+| **Backup Server**  | [bluebot-md-web.onrender.com](https://bluebot-md-web.onrender.com/)          | ![Online](https://img.shields.io/badge/Status-Online-green) |
 
 ### ⚙️ Minimal Configuration
 
@@ -242,7 +242,7 @@ npm start
 # .env file
 SESSION_ID="your_session_here"    # Required
 PREFIX="!"                        # Command character
-OWNER_NUMBER="22891733300"        # Your WhatsApp number
+OWNER_NUMBER="27744332007"        # Your WhatsApp number
 ```
 
 ## 💜 Acknowledgements
@@ -256,8 +256,8 @@ OWNER_NUMBER="22891733300"        # Your WhatsApp number
 
 ### 🌟 Special Thanks
 
-- **The Zokou community** for testing and feedback
-- **Contributors** on GitHub ([See all](https://gitlab.com/zokou1/zokou-md-english.git/graphs/contributors))
+- **The BLUEBOT-MD community** for testing and feedback
+- **Contributors** on GitHub ([See all](https://gitlab.com/bluebot-md1/bluebot-md-english.git/graphs/contributors))
 - **Beta Testers** for their patience with unstable versions 😅
 
 ### 📚 Libraries Used

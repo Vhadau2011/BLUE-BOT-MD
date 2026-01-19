@@ -1,19 +1,19 @@
 {
-  "name": "zokou-md",
+  "name": "bluebot-md",
   "version": "3.2.3",
   "description": "Best WhatsApp Bot",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "pm2 start index.js --attach --name zokou",
-    "zokou": "pm2 start index.js --attach --name zokou",
-    "stop": "pm2 stop zokou",
+    "start": "pm2 start index.js --attach --name bluebot-md",
+    "bluebot-md": "pm2 start index.js --attach --name bluebot-md",
+    "stop": "pm2 stop bluebot-md",
     "limit": "systemd-run --scope -p MemoryMax=500M -p CPUQuota=50% node index.js"
   },
   "keywords": [
     "bot",
     "Baileys",
-    "Zokou",
+    "BLUEBOT-MD",
     "whatsapp",
     "whatsapp-bot",
     "Fedora",

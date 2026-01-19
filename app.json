@@ -1,9 +1,9 @@
 {
-  "name": "Zokou-2.0",
-  "description": "whatsapp bot developed by djalega++",
+  "name": "BLUEBOT-MD-2.0",
+  "description": "whatsapp bot developed by Mudau_t",
   "keywords": ["bot", "node", "baileys", "whatsapp"],
-  "logo": "https://raw.githubusercontent.com/djalega8000/Zokou-2.0/main/Zokou.jpg",
-  "repository": "https://github.com/djalega8000/Zokou-2.0",
+  "logo": "https://raw.githubusercontent.com/Vhadau2011/BLUE-BOT-MD/main/assets/bot_image.jpg",
+  "repository": "https://github.com/Vhadau2011/BLUE-BOT-MD",
   "succes_url": "/",
   "stack": "container",
   "env": {
@@ -24,7 +24,7 @@
     },
     "BOT_NAME": {
       "description": "A name for your bot",
-      "value": "Zokou-MD",
+      "value": "BLUEBOT-MD",
       "required": false
     },
     "MENU_THEME": {
@@ -63,12 +63,12 @@
     "OWNER_NAME": {
       "description": "Your name",
       "required": false,
-      "value": "Djalega++"
+      "value": "Mudau_t"
     },
     "OWNER_NUMBER": {
       "description": "Your phone number; it must be in the format ID+number",
       "required": false,
-      "value": "22891733300"
+      "value": "27744332007"
     },
     "WARN_COUNT": {
       "description": "this is the warning limit count",
@@ -118,7 +118,7 @@
     "STICKER_PACKNAME": {
       "description": "Sticker pack name",
       "required": false,
-      "value": "made with ❤; Zokou-MD"
+      "value": "made with ❤; BLUEBOT-MD"
     },
     "DATABASE_URL": {
       "description": "URL of a PostgreSQL database, this is optional only if you want to always preserve the bot's saved data",
