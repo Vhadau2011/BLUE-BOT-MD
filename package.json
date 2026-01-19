@@ -1,25 +1,23 @@
 {
-  "name": "zokou",
+  "name": "bluebot-md",
   "version": "3.2.3",
-  "description": "Best WhatsApp Bot",
+  "description": "BLUEBOT-MD - Best WhatsApp Bot",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "pm2 start index.js --attach --name zokou",
-    "zokou": "pm2 start index.js --attach --name zokou",
+    "start": "npm install sharp --platform=linux --arch=x64 && node index.js",
+    "zokou": "node index.js",
     "stop": "pm2 stop zokou",
     "limit": "systemd-run --scope -p MemoryMax=500M -p CPUQuota=50% node index.js"
   },
   "keywords": [
     "bot",
     "Baileys",
-    "zokou",
+    "bluebot",
     "whatsapp",
-    "whatsapp-bot",
-    "Fedora",
-    "FaouzKK"
+    "whatsapp-bot"
   ],
-  "author": "Fedora && FaouzKK",
+  "author": "Mudau_t",
   "license": "ISC",
   "dependencies": {
     "@faouzkk/lyrics-finder": "^1.0.3",
@@ -61,7 +59,7 @@
     "pm2": "^5.4.3",
     "prompt-sync": "^4.2.0",
     "sequelize": "^6.37.7",
-    "sharp": "^0.32.2",
+    "sharp": "^0.32.6",
     "simple-git": "^3.28.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
