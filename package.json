@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "npm install sharp --platform=linux --arch=x64 && node index.js",
+    "start": "bash fix_sharp.sh",
     "zokou": "node index.js",
     "stop": "pm2 stop zokou",
     "limit": "systemd-run --scope -p MemoryMax=500M -p CPUQuota=50% node index.js"
