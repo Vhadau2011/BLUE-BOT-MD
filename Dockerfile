@@ -9,7 +9,7 @@ RUN apt-get update && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR /root/BLUE-BOT-MD
+WORKDIR /root/zokou
 
 COPY package.json .
 RUN npm install

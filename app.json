@@ -1,9 +1,9 @@
 {
-  "name": "BLUEBOT-MD-2.0",
+  "name": "zokou-2.0",
   "description": "whatsapp bot developed by Mudau_t",
   "keywords": ["bot", "node", "baileys", "whatsapp"],
-  "logo": "https://raw.githubusercontent.com/Vhadau2011/BLUE-BOT-MD/main/assets/bot_image.jpg",
-  "repository": "https://github.com/Vhadau2011/BLUE-BOT-MD",
+  "logo": "https://raw.githubusercontent.com/Vhadau2011/zokou/main/assets/bot_image.jpg",
+  "repository": "https://github.com/Vhadau2011/zokou",
   "succes_url": "/",
   "stack": "container",
   "env": {
@@ -24,7 +24,7 @@
     },
     "BOT_NAME": {
       "description": "A name for your bot",
-      "value": "BLUEBOT-MD",
+      "value": "zokou",
       "required": false
     },
     "MENU_THEME": {
@@ -118,7 +118,7 @@
     "STICKER_PACKNAME": {
       "description": "Sticker pack name",
       "required": false,
-      "value": "made with ❤; BLUEBOT-MD"
+      "value": "made with ❤; zokou"
     },
     "DATABASE_URL": {
       "description": "URL of a PostgreSQL database, this is optional only if you want to always preserve the bot's saved data",
